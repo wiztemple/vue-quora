@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      margin: {
+        "m-auto": 'auto',
+      }
+    }
   },
   variants: {},
   plugins: []
