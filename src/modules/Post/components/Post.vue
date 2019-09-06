@@ -23,9 +23,12 @@
         </div>
       </div>
     </nav>
-    <div class="w-full max-w-lg m-auto">
+    <div class="w-full">
       <div class="flex mb-4">
-        <div class="w-1/1">
+        <div class="w-1/5 h-12">
+          <h3>Categories</h3>
+        </div>
+        <div class="w-3/5 bg-gray-400 h-12">
           <div class="max-w-lg rounded overflow-hidden shadow-lg mt-5">
             <img class="w-full" src="@/assets/images/winter.jpg" alt="Sunset in the mountains">
             <div class="px-6 py-4">
@@ -51,7 +54,9 @@
             </div>
           </div>
         </div>
+        <div class="w-1/5 bg-gray-500 h-12"></div>
       </div>
+      
     </div>
   </div>
 </template>
