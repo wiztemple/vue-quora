@@ -8,7 +8,7 @@ const postRoutes = [
     component: PostPage,
     children: [
       {
-        path: '/post',
+        path: '/child',
         component: Post,
       }
     ]

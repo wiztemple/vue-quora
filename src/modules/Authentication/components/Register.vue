@@ -53,7 +53,7 @@
           type="button"
           @click="register"
         >
-          Sign In
+          Register
         </button>
         <router-link
           :to="'/authentication/login'"
@@ -82,8 +82,9 @@ export default {
   },
 
   methods: {
-    register() {
-      this.$store.dispatch("AuthStore/createNewUser", this.form);
+    async register() {
+      await this.$store.dispatch("AuthStore/createNewUser", this.form);
+      this.$router.push({path: '/post'})
     }
   }
 };

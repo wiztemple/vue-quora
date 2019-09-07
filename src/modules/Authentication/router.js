@@ -10,7 +10,14 @@ const authRoutes = [
       {
         path: 'register',
         component: Register,
-
+        meta: {
+          needsAuth: true,
+        }
+        // beforeEnter: ((to, from, next) => {
+        //   if (to.matched.some(record => record.meta.requiresAuth)) {
+        //     if ()
+        //   }
+        // })
       },
       {
         path: 'login',
