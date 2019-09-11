@@ -14,7 +14,8 @@
           type="text"
           placeholder="Username"
           v-model="form.username"
-          v-bind:class='{"border-red-500": errors.email && !errors.email.isValid, "border-green-500": errors.email && errors.email.isValid}'
+          @keyup="validateInput('username')"
+          v-bind:class='{"border-red-500": errors.username && !errors.username.isValid, "border-green-500": errors.username && errors.username.isValid}'
         />
       </div>
       <div class="mb-4">
@@ -95,6 +96,11 @@ export default {
       // await this.$store.dispatch("AuthStore/createNewUser", this.form);
       // this.$router.push({path: '/post'})
       this.validation();
+    },
+    validateInput(field) {
+      if(this.errors[field]) {
+        this.errors[field].isValid = this.form[field].length >= 5
+      }
     }
   }
 };
