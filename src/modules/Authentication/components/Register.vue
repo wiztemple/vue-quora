@@ -13,9 +13,9 @@
           id="username"
           type="text"
           placeholder="Username"
-          v-model="form.username"
-          @keyup="validateInput('username')"
-          v-bind:class='{"border-red-500": errors.username && !errors.username.isValid, "border-green-500": errors.username && errors.username.isValid}'
+          @keyup="validateInput"
+          v-model="username"
+          v-bind:class='{"border-red-500": errors.username && errors.username.isDirty, "border-green-500": errors.username && !errors.username.isDirty}'
         />
       </div>
       <div class="mb-4">
@@ -30,7 +30,7 @@
           id="email"
           type="email"
           placeholder="Email"
-          v-model="form.email"
+          v-model="email"
         />
       </div>
       <div class="mb-6">
@@ -45,7 +45,7 @@
           id="password"
           type="password"
           placeholder="******************"
-          v-model="form.password"
+          v-model="password"
         />
         <p class="text-xs italic">Please choose a password.</p>
       </div>
@@ -76,31 +76,55 @@ import mixin from '../mixin.js'
 export default {
   name: "Register",
   data() {
-    return {
-      form: {
-        email: "",
-        username: "",
-        password: ""
-      }
-    };
+    return {};
   },
   mixins: [mixin],
   computed: {
      isLoggedIn() {
        console.log(this.$store.state)
        return this.$store.state.AuthStore.isLoading
-     }
+     },
+
+      errors() {
+        return this.$store.state.AuthStore.errors
+      },
+
+     username: {
+     	get() {
+     		return this.$store.state.AuthStore.form.username
+      },
+      set(value) {
+     		this.$store.commit('AuthStore/setFormFields', {field: 'username', value})
+      }
+     },
+
+		email: {
+			get() {
+				return this.$store.state.AuthStore.form.email
+			},
+			set(value) {
+				this.$store.commit('AuthStore/setFormFields', {field: 'email', value})
+			}
+		},
+
+		password: {
+			get() {
+				return this.$store.state.AuthStore.form.password
+			},
+			set(value) {
+				this.$store.commit('AuthStore/setFormFields', {field: 'password', value})
+			}
+		}
   },
   methods: {
     async register() {
-      // await this.$store.dispatch("AuthStore/createNewUser", this.form);
+      // await this.$store.dispatch("AuthStore/createNewUser");
       // this.$router.push({path: '/post'})
-      this.validation();
+      this.$store.dispatch('AuthStore/validateFormInputs');
     },
-    validateInput(field) {
-      if(this.errors[field]) {
-        this.errors[field].isValid = this.form[field].length >= 5
-      }
+
+		validateInput() {
+			this.$store.dispatch('AuthStore/validateFormInputs');
     }
   }
 };
