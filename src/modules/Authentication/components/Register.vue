@@ -14,6 +14,7 @@
           type="text"
           placeholder="Username"
           v-model="form.username"
+          v-bind:class='{"border-red-500": errors.email && !errors.email.isValid, "border-green-500": errors.email && errors.email.isValid}'
         />
       </div>
       <div class="mb-4">
@@ -39,13 +40,13 @@
           Password
         </label>
         <input
-          class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="password"
           type="password"
           placeholder="******************"
           v-model="form.password"
         />
-        <p class="text-red-500 text-xs italic">Please choose a password.</p>
+        <p class="text-xs italic">Please choose a password.</p>
       </div>
       <div class="flex items-center justify-between">
         <button
@@ -53,7 +54,8 @@
           type="button"
           @click="register"
         >
-          Register
+          <span v-if="!isLoggedIn">Register</span>
+          <span v-else>Loading.....</span>
         </button>
         <router-link
           :to="'/authentication/login'"
@@ -69,6 +71,7 @@
 </template>
 
 <script>
+import mixin from '../mixin.js'
 export default {
   name: "Register",
   data() {
@@ -80,11 +83,18 @@ export default {
       }
     };
   },
-
+  mixins: [mixin],
+  computed: {
+     isLoggedIn() {
+       console.log(this.$store.state)
+       return this.$store.state.AuthStore.isLoading
+     }
+  },
   methods: {
     async register() {
-      await this.$store.dispatch("AuthStore/createNewUser", this.form);
-      this.$router.push({path: '/post'})
+      // await this.$store.dispatch("AuthStore/createNewUser", this.form);
+      // this.$router.push({path: '/post'})
+      this.validation();
     }
   }
 };

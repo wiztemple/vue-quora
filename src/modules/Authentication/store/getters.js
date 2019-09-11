@@ -1,1 +1,5 @@
-export default {};
+export default {
+  currentUser(state) {
+    return state.user
+  }
+};
