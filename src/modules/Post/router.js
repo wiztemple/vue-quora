@@ -1,5 +1,5 @@
 import PostPage from "./PostPage";
-import Post from './components/Post.vue';
+import Posts from './components/Posts.vue';
 
 
 const postRoutes = [
@@ -8,8 +8,8 @@ const postRoutes = [
     component: PostPage,
     children: [
       {
-        path: '/child',
-        component: Post,
+        path: '/posts',
+        component: Posts,
       }
     ]
   }
