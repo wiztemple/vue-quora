@@ -17,13 +17,11 @@
 </template>
 
 <script>
-import { SWITCH_CREATEPOST_MODAL } from "@/store/mutation-type";
-
 export default {
   props: ['showModal'],
   methods: {
     closeModal() {
-      this.$store.dispatch(SWITCH_CREATEPOST_MODAL, false)
+      this.$store.dispatch("PostStore/switchModal", false)
     }
   }
 }

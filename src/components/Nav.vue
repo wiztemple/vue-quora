@@ -14,7 +14,7 @@
             <div class="navbar-left">
               <router-link class="navbar-item" to="/posts">Feeds</router-link>
               <div class="navbar-item">
-                <button class="button button-dark">Create Post</button>
+                <button class="button button-dark" @click="toggleCreateModal">Create Post</button>
               </div>
             </div>
             <div class="navbar-right">
@@ -32,7 +32,17 @@
      </div>
 </template>
 <script>
-  export default {
-  name: "Nav"
- }
+import CreatePost from '../modules/Post/components/CreatePost'
+
+export default {
+  name: "Nav",
+  components: {
+    CreatePost
+  },
+  methods: {
+    toggleCreateModal() {
+      this.$store.dispatch("PostStore/switchModal", true)
+    }
+  }
+}
 </script>

@@ -66,6 +66,4 @@ import CommentIcon from './CommentIcon'
   // }
   }
 </script>
-<style lang="scss" scoped>
 
-</style>
