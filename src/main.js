@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import firebase from 'firebase'
 import './assets/sass/index.scss'
+import api from './modules/api'
 
 Vue.config.productionTip = false;
 
@@ -22,5 +23,8 @@ firebase.initializeApp(config)
 new Vue({
   router,
   store,
+  created() {
+    api.init()
+  },
   render: h => h(App)
 }).$mount("#app");
