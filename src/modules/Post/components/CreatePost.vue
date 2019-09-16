@@ -9,29 +9,32 @@
           <div class="input-control">
             <label class="label">TITLE/TOPIC</label>
             <div class="flex-start align-center">
-              <div class="emoji-size">😐</div>
+              <div class="emoji-size" v-if="false">😐</div>
               <input 
                 class="input-field input-field__lg" 
-                type="text" 
+                type="text"
+                v-model="form.topic"
                 placeholder="Title/Topic ✍" 
               />
             </div>
           </div>
            <div class="input-control">
             <label class="label">Description</label>
-            <input 
+            <input
               class="input-field" 
-              type="text" 
-              placeholder="🖊 content" 
+              type="text"
+              v-model="form.description"
+              placeholder="🖊 description"
             />
           </div>
           <div class="input-control">
-            <textarea class="textarea" cols="3" placeholder="🖊 content"></textarea>
+            <label class="label">content</label>
+            <textarea class="textarea" v-model="form.content" cols="3" rows="4" placeholder="🖊 content"></textarea>
           </div>
           <div class="greyline"></div>
            <div class="flex-start">
             <button class="button cancel-btn">Cancel</button>
-            <button class="button button-sm button-dark button-rounded ml-10">Create</button>
+            <button class="button button-sm button-dark button-rounded ml-10" @click="createPost">Create</button>
            </div>
         </form>
       </template>
@@ -43,6 +46,15 @@
 import Modal from '@/components/Modal.vue'
 
 export default {
+	data() {
+		return {
+			form: {
+        topic: '',
+        description: '',
+        content: ''
+      }
+    }
+  },
   components: {
     Modal
   },
@@ -51,6 +63,10 @@ export default {
       return this.$store.state.PostStore.showModal
     }
   },
-  methods: {}
+  methods: {
+		createPost(){
+      this.$store.dispatch('Post/createSinglePost', {value: this.form})
+    }
+  }
 }
 </script>

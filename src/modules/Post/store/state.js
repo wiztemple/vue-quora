@@ -1,3 +1,5 @@
 export default {
-  showModal: false
-}
+  showModal: false,
+  posts: [],
+};
+
