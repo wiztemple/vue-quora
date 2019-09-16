@@ -5,7 +5,7 @@
         <h3>Modal Header</h3>
       </template>
       <template v-slot:modal-body> 
-        <form>
+        <form @submit.prevent="createPost">
           <div class="input-control">
             <label class="label">TITLE/TOPIC</label>
             <div class="flex-start align-center">
@@ -34,7 +34,7 @@
           <div class="greyline"></div>
            <div class="flex-start">
             <button class="button cancel-btn">Cancel</button>
-            <button class="button button-sm button-dark button-rounded ml-10" @click="createPost">Create</button>
+            <button class="button button-sm button-dark button-rounded ml-10">Create</button>
            </div>
         </form>
       </template>
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
 		createPost(){
-      this.$store.dispatch('Post/createSinglePost', {value: this.form})
+      this.$store.dispatch('PostStore/createSinglePost', {value: this.form})
     }
   }
 }
