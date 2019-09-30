@@ -9,8 +9,6 @@
         <div class="col-9">
           <div class="mt-30">
             <Card />
-            <Card />
-            <Card />
           </div>
         </div>
       </div>

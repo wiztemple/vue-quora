@@ -10,7 +10,7 @@
             <label class="label">TITLE/TOPIC</label>
             <div class="flex-start align-center">
               <div class="emoji-size" v-if="false">😐</div>
-              <input 
+              <input
                 class="input-field input-field__lg" 
                 type="text"
                 v-model="form.topic"
@@ -52,7 +52,8 @@ export default {
         topic: '',
         description: '',
         content: ''
-      }
+      },
+      isLoading: false
     }
   },
   components: {

@@ -1,10 +1,10 @@
 <template>
   <div class="sidemenu">
-    <a class="item active" href="#">&#127757; Politics</a>
-    <a class="item" href="#">&#128752;Technology</a>
-    <a class="item" href="#">&#128332; &#128333; Religion</a>
-    <a class="item" href="#">&#128421;Programming</a>
-    <a class="item" href="#">&#127925; Music</a>
-    <a class="item" href="#">&#127936; Sports</a>
+    <router-link class="item active" to="/posts">&#127757; Politics</router-link>
+    <router-link class="item" to="/posts">&#128752;Technology</router-link>
+    <router-link class="item" to="/posts">&#128332; &#128333; Religion</router-link>
+    <router-link class="item" to="/posts">&#128421;Programming</router-link>
+    <router-link class="item" to="/posts">&#127925; Music</router-link>
+    <router-link class="item" to="/posts">&#127936; Sports</router-link>
   </div>
 </template>

@@ -4,10 +4,10 @@ module.exports = function () {
   let faker = require("faker");
   let _ = require("lodash");
   return {
-    posts: _.times(100, n => {
+    posts: _.times(10, n => {
       return {
         id: n,
-        title: faker.random.words(),
+        title: faker.lorem.sentence(),
         description: faker.lorem.sentence(),
         body: faker.lorem.paragraphs(5),
         likesCount: faker.random.number(),
@@ -17,7 +17,7 @@ module.exports = function () {
         category: generateCategory(categories),
       }
     }),
-    comments: _.times(20, n => {
+    comments: _.times(5, n => {
       return {
         id: n,
         commentBody: faker.lorem.paragraphs(5),
@@ -26,7 +26,7 @@ module.exports = function () {
         avatar: faker.internet.avatar(),
       }
     }),
-    replies: _.times(20, n => {
+    replies: _.times(5, n => {
       return {
         id: n,
         body: faker.lorem.sentences(),
@@ -35,7 +35,7 @@ module.exports = function () {
         avatar: faker.internet.avatar(),
       }
     }),
-    likes: _.times(20, n => {
+    likes: _.times(2, n => {
       return {
         id: n,
         likesCount: faker.random.number(),

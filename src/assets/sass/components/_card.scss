@@ -23,11 +23,12 @@
   // border: 1px solid $grey-1;
   margin-top: 20px;
   border-radius: 5px;
-  box-shadow: 0 0px 1px 1px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(238, 238, 238, 0.637);
+  // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
 .rcard:hover {
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(238, 238, 238, 0.425);
 }
 
 .rcard-image {
@@ -44,9 +45,9 @@
 }
 
 .rcard-body {
-color:#646464;
+color:#333;
 font-size:14px;
-line-height:28px;
+line-height:27px;
 font-weight: 400;
 vertical-align: baseline;
 letter-spacing:normal;

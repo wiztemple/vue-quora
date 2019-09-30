@@ -1,7 +1,7 @@
 <template>
    <div class="header">
       <nav class="navbar fixed-top" role="navigation" aria-label="main navigation">
-        <div class="container is-fluid">
+        <div class="container">
           <div class="brand">
             <router-link to="/" class="navbar-item">VUE-QUORA</router-link>
             <a role="button" class="navbar-burger burger" aria-label="menu">
@@ -14,7 +14,7 @@
             <div class="navbar-left">
               <router-link class="navbar-item" to="/posts">Feeds</router-link>
               <div class="navbar-item">
-                <button class="button button-dark" @click="toggleCreateModal">Create Post</button>
+                <button class="button button-dark button-rounded" @click="toggleCreateModal">Create Post</button>
               </div>
             </div>
             <div class="navbar-right">

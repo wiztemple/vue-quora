@@ -12,7 +12,3 @@ import Card from './components/Card.vue'
 		name: 'PostPage'
 	}
 </script>
-
-<style scoped>
-
-</style>

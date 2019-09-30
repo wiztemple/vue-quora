@@ -4,7 +4,7 @@
 
 html {
   box-sizing: border-box;
-  background-color: $bg-color;
+  background-color: $white;
   font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -23,12 +23,13 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
   text-align: left;
   font-size: 16px;
   line-height: 1.6;
-  background-color: $bg-color;
+  background-color: $white;
 }
 
 body::-webkit-scrollbar {
