@@ -8,6 +8,7 @@ export default {
     try {
       const response = await PostService.create(payload)
       console.log(response)
+      commit('addPost', response)
     } catch (e) {
       console.log(e)
     }

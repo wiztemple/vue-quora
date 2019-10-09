@@ -5,6 +5,7 @@ import store from "./store";
 import firebase from 'firebase'
 import './assets/sass/index.scss'
 import api from './modules/api'
+import EventBus from './plugins/EventBus'
 
 Vue.config.productionTip = false;
 
@@ -19,6 +20,7 @@ const config = {
 };
 
 firebase.initializeApp(config)
+Vue.use(EventBus);
 
 new Vue({
   router,

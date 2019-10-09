@@ -4,5 +4,8 @@ export default {
   },
   getAllPosts(state, payload) {
     state.posts = payload
+  },
+  addPost(state, payload) {
+    state.posts.unshift(payload);
   }
 }

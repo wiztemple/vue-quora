@@ -5,7 +5,7 @@
         <h4 class="rcard-title">{{post.title}}</h4>
         <div class="flex-start">
           <div>
-            <img class="rcard-image" :src="post.avatar" alt>
+            <img class="rcard-image" v-if={} :src="post.avatar" alt>
           </div>
           <div class="ml-10">
             <div class="card-username">
@@ -43,6 +43,7 @@
 import { mapGetters, mapActions } from "vuex";
 import Like from "./Like";
 import CommentIcon from "./CommentIcon";
+import image from '../../../assets/user.png';
 export default {
   name: "card",
   components: {
