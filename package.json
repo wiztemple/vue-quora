@@ -11,7 +11,7 @@
     "json": "json-server --watch db/db.json --routes routes.json"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "firebase": "^6.6.0",
     "tailwindcss": "^1.1.2",
